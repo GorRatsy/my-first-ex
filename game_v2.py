@@ -10,13 +10,34 @@ def random_predict(number:int=1)-> int:
         int: [description]
     """
     count = 0
+    s = 0
+    n = 101
+    
     while True:
-        count+=1
-        predict_number = np.random.randint(0,101)
-        if number == predict_number:
-            break #exit from cycle
+        count += 1
+        predict_number = np.random.randint(s, n)
+        
+        
+        if number > predict_number:
+            s = predict_number
+            n = 101
+           
+            
+        elif number < predict_number:
+            s = 0
+            n = predict_number
+                
+        
+        elif number == predict_number:
+            break  # exit from cycle
+        
+        
     return count
+
+
 def score_game(random_predict)-> int:
+    
+    
     """How much predict
 
     Args:
@@ -25,18 +46,22 @@ def score_game(random_predict)-> int:
     Returns:
         int: [middle num of trying]
     """
-    count_is = [] #list of trying
-    np.random.seed(1) #number of finish cases
-    r_array = np.random.randint(1,101, size=(1000)) #list of numbers that computer must to predict
+    
+    
+    count_is = []  # list of trying
+    np.random.seed(1)  # number of finish cases
+    r_array = np.random.randint(1, 101, size = (1000)) 
+    # list of numbers that computer must to predict
+    
     
     for number in r_array:
         count_is.append(random_predict(number))
         
+    
     score = int(np.mean(count_is)) # count middle num from array o tryings
     print(f'Middle num of trying is {score}')
     return score
 
-if name = '__main__':
-    #run
-    score_game(random_predict)
+
+score_game(random_predict)
 
