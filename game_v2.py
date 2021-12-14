@@ -10,23 +10,92 @@ def random_predict(number:int=1)-> int:
         int: [description]
     """
     count = 0
-    s = 0
+    s = 1
     n = 101
     
     while True:
         count += 1
         predict_number = np.random.randint(s, n)
-        
+            
         
         if number > predict_number:
             s = predict_number
             n = 101
+            predict_number = np.random.randint(s, n)
+            count += 1
+            
+            
+            if number > predict_number:
+                 s = predict_number
+                 n = 101
+                 predict_number = np.random.randint(s, n)
+                 count += 1
+                 
+                 
+                 if number > predict_number:
+                     s = predict_number
+                     n = 101
+                     
+                     
+                 elif number < predict_number:
+                     n = predict_number
+                     
+                 
+                 elif number == predict_number:
+                     break
+            
+            
+            elif number < predict_number:
+                n = predict_number
+                predict_number = np.random.randint(s, n)
+                count += 1
+                
+                
+                if number < predict_number:
+                    n = predict_number
+                    
+                
+                elif number > predict_number:
+                    s = predict_number
+                 
+                                       
+                
+            elif number == predict_number:
+                break
+             
            
             
         elif number < predict_number:
-            s = 0
+            s = 1
             n = predict_number
+            count += 1
+            predict_number = np.random.randint(s, n)
+        
+        
+            if number < predict_number:
+                n = predict_number
+                count += 1
+                predict_number = np.random.randint(s, n)
                 
+                
+                if number < predict_number:
+                    n = predict_number
+                    
+                    
+                elif number > predict_number:
+                    s = predict_number
+                    
+                
+                elif number == predict_number:
+                    break
+                
+                
+            elif number > predict_number:
+                s = predict_number
+                
+            
+            elif number == predict_number:
+                break
         
         elif number == predict_number:
             break  # exit from cycle
