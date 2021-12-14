@@ -16,63 +16,44 @@ def random_predict(number:int=1)-> int:
     while True:
         count += 1
         predict_number = np.random.randint(s, n)
+        num_list = []  # list generator
+        for i in range(1,101):
+            num_list.append(i) 
+        
+        n1 = num_list[:20]
+        n2 = num_list[20 : 40]
+        n3 = num_list[40 : 60]
+        n4 = num_list[60 : 80]
+        n5 = num_list[80 : 99]
         
         
-        if number in list(int(range(1, 51))):
+        if number in n1:
+            s = num_list[0]
+            n = num_list[19]
             
             
-            if number in list(int(range(1,26))):
-                
-                
-                if number in list(int(range(1,21))):
-                    s = 1
-                    n = 20
-                        
-                
-                elif number in list(int(range(21, 26))):
-                    s = 21
-                    n = 26
+        elif number in n2:
+            s = num_list[20]
+            n = num_list[39]
+            
+        
+        elif number in n3:
+            s = num_list[40]
+            n = num_list[59]
             
             
-        if number in range(51, 101):
+        elif number in n4:
+            s = num_list[60]
+            n = num_list[79]
             
             
-            if number in list(int(range(51, 76))):
-                
-                if number in list(int(range(51, 71))):
-                    s = 51if number in list(int(range(51, 71))):
-                    s = 51
-                    n = 70
-                    
-                    
-                elif number in list(int(range(71,76))):
-                     s = 71
-                     n = 75
-                    n = 70
-                    
-                    
-                elif number in list(int(range(71,76))):
-                     s = 71
-                     n = 75
+        elif number in n5:
+            s = num_list[80]
+            n = num_list[99]
             
             
-            elif  number in list(int(range(76, 101))):
-                
-                
-                if number in list(int(range(76,91))):
-                    s = 76
-                    n = 90
-                    
-                    
-                elif number in list(int(range(91, 101))):
-                     s = 91
-                     n = 75
-                
-                
-         
-        if number == predict_number:
+        elif number == predict_number:
             break
-        
     
     return count
 
