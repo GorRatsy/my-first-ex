@@ -11,20 +11,12 @@ for i in ml:
       all_ingredients.add(x)
 len(all_ingredients)
 
-check_list = list()
-def all(ingrs):
-  for i in ingrs:
-    if i not in check_list:
-      check_list.append(i)
-  return None
-cuisins['ingredients'].apply(all)
-len(check_list)
-
 def contains(ingredients):
   if ing_name in ingredients:
     return 1
   else:
     return 0
+    
 
 for ing_name in check_list:
   cuisins[ing_name] = cuisins['ingredients'].apply(contains)
